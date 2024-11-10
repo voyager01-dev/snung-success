@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수능 합격 기원</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #fafad2;
+            color: #333;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff6347;
+            font-size: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4682b4;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInUp 2s ease-in-out forwards;
+        }
+        .letter {
+            font-size: 50px;
+            font-weight: bold;
+            color: #ff4500;
+            opacity: 0;
+            animation: popIn 0.5s ease-out forwards;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .celebration {
+            font-size: 50px;
+            color: #ff1493;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInUp 2s ease-in-out forwards;
+            animation-delay: 2.5s;
+        }
+        .special-message {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1e90ff;
+            opacity: 0;
+            animation: fadeInUp 2s ease-in-out forwards;
+            animation-delay: 3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌟 CPU 선배님들! 수능 대박을 응원합니다! 🌟</h1>
+    <p class="message">✨ 합격의 기운을 보내드립니다... 잠시만 기다려주세요! ✨</p>
+    
+    <div id="greeting" class="message"></div>
+
+    <script>
+        const 합격 = ["남", "은", "건", "합", "격", "뿐", "! 🎉🎊"];
+        let index = 0;
+        const greetingElement = document.getElementById("greeting");
+
+        function showMessage() {
+            if (index < 합격.length) {
+                const letterElement = document.createElement("span");
+                letterElement.classList.add("letter");
+                letterElement.innerText = 합격[index];
+                greetingElement.appendChild(letterElement);
+                index++;
+                setTimeout(showMessage, 500); // 0.5초마다 한 글자씩 출력
+            } else {
+                setTimeout(() => {
+                    document.body.innerHTML += "<p class='celebration'>🎉 CPU 선배님들, 파이팅! 🎉</p>";
+                    document.body.innerHTML += "<p class='special-message'>🚀 새로운 시작을 응원합니다! 프로그래밍처럼 문제를 해결하는 삶을 기대해요! 💻✨</p>";
+                }, 500);
+            }
+        }
+
+        // 메시지 출력 시작
+        showMessage();
+    </script>
+</body>
+</html>
